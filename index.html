@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaPlay — Casino Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <span>◆</span> NovaPlay
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#leaderboard">Leaderboard</a>
+  </nav>
+
+  <div class="nav-right">
+    <div class="balance">
+      🪙 <span id="balance">1000</span>
+    </div>
+    <button class="login-btn" onclick="openLogin()">Login</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">DEMO • VIRTUAL COINS ONLY</span>
+
+    <h1>Play. Win. <span>Enjoy.</span></h1>
+
+    <p>
+      A modern casino-style gaming experience built for learning and
+      entertainment using virtual points only.
+    </p>
+
+    <button class="primary-btn" onclick="scrollToGames()">
+      Explore Games →
+    </button>
+  </div>
+
+  <div class="hero-card">
+    <div class="floating-chip">🪙</div>
+    <div class="cards">♠ ♥ ♦ ♣</div>
+    <h3>WELCOME BONUS</h3>
+    <strong>+500 COINS</strong>
+    <p>Virtual demo balance</p>
+  </div>
+</section>
+
+
+<section class="stats">
+  <div>
+    <strong>10K+</strong>
+    <span>Demo Players</span>
+  </div>
+
+  <div>
+    <strong>25+</strong>
+    <span>Games</span>
+  </div>
+
+  <div>
+    <strong>100%</strong>
+    <span>Virtual Coins</span>
+  </div>
+
+  <div>
+    <strong>24/7</strong>
+    <span>Demo Access</span>
+  </div>
+</section>
+
+
+<section class="games-section" id="games">
+
+  <div class="section-title">
+    <div>
+      <span class="small-title">POPULAR</span>
+      <h2>Featured Games</h2>
+    </div>
+
+    <div class="filters">
+      <button class="filter active" onclick="filterGames('all', this)">All</button>
+      <button class="filter" onclick="filterGames('original', this)">Originals</button>
+      <button class="filter" onclick="filterGames('cards', this)">Cards</button>
+    </div>
+  </div>
+
+
+  <div class="games-grid">
+
+    <div class="game-card" data-category="original" onclick="openGame('Dice')">
+      <div class="game-icon dice">🎲</div>
+      <div class="game-info">
+        <h3>Dice</h3>
+        <p>Roll the virtual dice</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+
+    <div class="game-card" data-category="original" onclick="openGame('Mines')">
+      <div class="game-icon mines">💣</div>
+      <div class="game-info">
+        <h3>Mines</h3>
+        <p>Find safe virtual tiles</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+
+    <div class="game-card" data-category="cards" onclick="openGame('Cards')">
+      <div class="game-icon cards-icon">🃏</div>
+      <div class="game-info">
+        <h3>High Card</h3>
+        <p>Compare virtual cards</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+
+    <div class="game-card" data-category="original" onclick="openGame('Crash')">
+      <div class="game-icon crash">📈</div>
+      <div class="game-info">
+        <h3>Rocket</h3>
+        <p>Demo multiplier game</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+
+    <div class="game-card" data-category="cards" onclick="openGame('Blackjack')">
+      <div class="game-icon blackjack">♠️</div>
+      <div class="game-info">
+        <h3>21 Demo</h3>
+        <p>Classic card challenge</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+
+    <div class="game-card" data-category="original" onclick="openGame('Wheel')">
+      <div class="game-icon wheel">🎡</div>
+      <div class="game-info">
+        <h3>Lucky Wheel</h3>
+        <p>Spin for virtual coins</p>
+      </div>
+      <button>PLAY</button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="bonus-section">
+
+  <div class="bonus-content">
+    <span class="small-title">DAILY REWARD</span>
+    <h2>Claim Your Demo Bonus</h2>
+
+    <p>
+      Come back every day and collect free virtual coins.
+    </p>
+
+    <button id="bonusBtn" class="primary-btn" onclick="claimBonus()">
+      Claim +250 🪙
+    </button>
+  </div>
+
+  <div class="bonus-visual">
+    🎁
+  </div>
+
+</section>
+
+
+<section class="leaderboard" id="leaderboard">
+
+  <div class="section-title">
+    <div>
+      <span class="small-title">TOP PLAYERS</span>
+      <h2>Demo Leaderboard</h2>
+    </div>
+  </div>
+
+  <div class="table">
+
+    <div class="table-head">
+      <span>#</span>
+      <span>Player</span>
+      <span>Game</span>
+      <span>Score</span>
+    </div>
+
+    <div class="table-row">
+      <span>01</span>
+      <span>🔥 ShadowX</span>
+      <span>Dice</span>
+      <strong>98,420</strong>
+    </div>
+
+    <div class="table-row">
+      <span>02</span>
+      <span>⚡ Nova</span>
+      <span>Mines</span>
+      <strong>84,200</strong>
+    </div>
+
+    <div class="table-row">
+      <span>03</span>
+      <span>💎 LuckyR</span>
+      <span>Wheel</span>
+      <strong>72,850</strong>
+    </div>
+
+    <div class="table-row">
+      <span>04</span>
+      <span>🚀 RocketBoy</span>
+      <span>Rocket</span>
+      <strong>69,500</strong>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+  <div class="logo">
+    <span>◆</span> NovaPlay
+  </div>
+
+  <p>
+    Demo website for educational purposes.
+    No real-money gambling, deposits or withdrawals.
+  </p>
+
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Responsible Play</a>
+  </div>
+</footer>
+
+
+<!-- GAME MODAL -->
+
+<div class="modal" id="gameModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeGame()">×</button>
+
+    <span class="small-title">VIRTUAL GAME</span>
+
+    <h2 id="gameTitle">Dice</h2>
+
+    <div class="game-display">
+
+      <div id="gameResult">🎲</div>
+
+    </div>
+
+    <div class="bet-area">
+
+      <label>Virtual Coins</label>
+
+      <input
+        type="number"
+        id="betAmount"
+        value="50"
+        min="1"
+        max="1000"
+      >
+
+      <button class="primary-btn" onclick="playGame()">
+        Play Demo
+      </button>
+
+    </div>
+
+    <p class="result-text" id="resultText">
+      Choose a game and play using virtual coins.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+  <div class="modal-box login-box">
+
+    <button class="close" onclick="closeLogin()">×</button>
+
+    <div class="login-logo">◆</div>
+
+    <h2>Welcome Back</h2>
+
+    <p>Demo login — no real account required.</p>
+
+    <input type="text" placeholder="Username">
+
+    <input type="password" placeholder="Password">
+
+    <button class="primary-btn" onclick="demoLogin()">
+      Login
+    </button>
+
+    <small id="loginMessage"></small>
+
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
